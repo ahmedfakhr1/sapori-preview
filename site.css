@@ -1,0 +1,647 @@
+/* Nocturne v2 template: dark walnut room on top, marble for what you read and do.
+   Colours from the logo and the renovated room (walnut, marble, brass, banquette coral). */
+:root{--night:#004101;--wood:#05300A;--panel:#0B4A12;--ink:#14230F;--marble:#F4EBDA;--paper:#FFF8F2;--stone:#E6D9BF;--brass:#B8923F;--brass-lt:#E2C07A;--coral:#A8532D;--coral-dk:#8A4122;--rose:#94080F;--mute:#5A624F;--mute-dk:#C2CDB4;--line:#DACDB0;--line-dk:#1C6325;--h:68px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.6;color:var(--ink);background:var(--marble);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:"Antonio","Hanken Grotesk",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;line-height:1.02}
+:focus-visible{outline:3px solid var(--brass-lt);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;inset-inline-start:8px;top:8px;transform:translateY(-300%);background:var(--marble);color:var(--ink);padding:10px 16px;border-radius:6px;z-index:400}.skip:focus{transform:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:var(--night);color:var(--marble);border-bottom:1px solid var(--line-dk)}
+.hdr .wrap{height:var(--h);display:flex;align-items:center;gap:28px}
+.brand{display:block;flex:none;padding:6px 0}.brand img{height:30px;width:auto}
+.nav{display:flex;gap:4px;margin-left:16px}
+.nav a{text-decoration:none;font:500 18px/1 "Antonio";letter-spacing:.1em;text-transform:uppercase;padding:14px 14px;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--brass-lt)}.nav a[aria-current=page]{border-bottom-color:var(--brass)}
+.hr{margin-left:auto;display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 16px/1 "Hanken Grotesk",sans-serif;letter-spacing:.02em;text-decoration:none;padding:15px 26px;border-radius:3px;border:1.5px solid var(--coral);background:var(--coral);color:var(--paper);cursor:pointer;min-height:48px}
+.btn:hover{background:var(--coral-dk);border-color:var(--coral-dk)}
+.btn.ghost{background:transparent;color:var(--marble);border-color:var(--brass)}.btn.ghost:hover{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+.btn.dk{background:var(--ink);border-color:var(--ink);color:var(--marble)}.btn.dk:hover{background:#2C4025;border-color:#2C4025}
+.btn.sm{padding:11px 18px;min-height:44px;font-size:15px}
+.lang{font:600 15px/1 "Hanken Grotesk";border:1.5px solid var(--line-dk);background:transparent;color:var(--marble);border-radius:3px;padding:10px 14px;min-height:44px;cursor:pointer}.lang:hover{border-color:var(--brass)}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border:0;background:transparent;cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:var(--marble);transition:transform .25s,opacity .25s}
+.burger i:nth-child(1){top:17px}.burger i:nth-child(2){top:23px}.burger i:nth-child(3){top:29px}
+.burger[aria-expanded=true] i:nth-child(1){top:23px;transform:rotate(45deg)}.burger[aria-expanded=true] i:nth-child(2){opacity:0}.burger[aria-expanded=true] i:nth-child(3){top:23px;transform:rotate(-45deg)}
+.mnav{position:fixed;inset:var(--h) 0 0 0;background:var(--night);color:var(--marble);z-index:49;padding:28px 24px 120px;display:none;flex-direction:column;gap:0;overflow:auto}
+.mnav.open{display:flex}
+.mnav a{font:400 40px/1.1 "Antonio";letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:16px 0;border-bottom:1px solid var(--line-dk)}
+.mnav .sub{font:500 16px/1.5 "Hanken Grotesk";letter-spacing:0;text-transform:none;color:var(--mute-dk);border:0;padding:20px 0 0}
+
+/* hero: the dark room */
+.sub{font-size:20px;line-height:1.55;max-width:28em;margin-top:26px;color:#F1EADB}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.status{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-weight:600;font-size:16px}
+.status:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--brass);flex:none}
+.status.open:before{background:#6FB06A}
+.proof{margin-top:12px;font-size:15px;color:var(--mute-dk)}
+
+/* sections */
+.sec{padding:104px 0;position:relative}
+.sec h2{font-size:clamp(40px,4.8vw,68px);letter-spacing:.03em;max-width:14ch}
+.rule{display:block;width:64px;height:2px;background:var(--brass);margin:20px 0 0}
+.lead{font-size:19px;line-height:1.55;max-width:30em;margin-top:22px}
+
+/* dishes: marble */
+.sig{margin-top:30px;font-size:18px;line-height:1.6;max-width:32em;color:var(--mute)}
+.sig b{font:italic 500 23px/1.3 "Newsreader",serif;color:var(--ink)}
+.sig span{font:500 22px "Antonio";letter-spacing:.04em;color:var(--coral);margin:0 0 0 4px}
+.rows{list-style:none;margin-top:30px}
+.rows li{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.rows li:last-child{border-bottom:1px solid var(--line)}
+.th{width:76px;height:76px;flex:none;border-radius:50%;background:#fff;overflow:hidden}
+.th img{width:100%;height:100%;object-fit:cover}
+.it{display:block;min-width:0}
+.it i{display:block;font:italic 500 22px/1.2 "Newsreader",serif}
+.it small{display:block;font-size:14.5px;line-height:1.4;color:var(--mute);margin-top:3px;max-width:30em}
+.dots{flex:1;border-bottom:2px dotted var(--brass);transform:translateY(-4px);min-width:14px;align-self:center}
+.pr{font:500 22px/1 "Antonio";letter-spacing:.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.more{margin-top:30px}
+.note{font-size:14px;color:var(--mute);margin-top:16px}
+
+/* the room: walnut */
+
+/* reserve: marble */
+.marble{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.reserve>.wrap{position:relative;z-index:1}
+.reserve .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:start}
+.ways{list-style:none;margin-top:34px;display:grid;gap:0;max-width:30em}
+.ways li{display:flex;gap:18px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:18px}
+.ways li:last-child{border-bottom:1px solid var(--line)}
+.ways span{font:500 18px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--coral);min-width:64px;padding-right:8px;flex:none}
+.ways a{text-decoration:none;font-weight:600;overflow-wrap:anywhere;padding:8px 0;display:inline-block}.ways a:hover{text-decoration:underline}
+.rform{background:var(--paper);padding:38px 40px 34px;outline:1px solid var(--brass-lt);outline-offset:-10px;display:grid;gap:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.three{display:grid;grid-template-columns:1.3fr 1.1fr .7fr;gap:18px}
+.fld{display:grid;gap:6px;min-width:0}
+.fld label{font:500 17px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.fld input,.fld select,.fld textarea{font:400 17px "Hanken Grotesk";color:var(--ink);background:#fff;border:1px solid #827B6D;border-radius:3px;padding:12px 12px;min-height:48px;width:100%}
+.fld textarea{resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:var(--coral)}
+.rerr{color:var(--rose);font-weight:600;font-size:15px}
+.rform .btn{justify-self:start}
+.rform .fine{font-size:14px;color:var(--mute);line-height:1.5}
+
+/* footer */
+.ftr{background:var(--night);color:var(--marble);padding:68px 0 48px}
+.ftr .wrap{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:48px}
+.ftr img{width:300px;height:auto}
+.ftr p,.ftr li{font-size:15px;color:var(--mute-dk);line-height:1.6}
+.ftr h4{font:500 18px/1 "Antonio";letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;color:var(--brass-lt)}
+.ftr ul{list-style:none}
+.ftr a{text-decoration:none;display:inline-block;padding:10px 0;overflow-wrap:anywhere}.ftr a:hover{text-decoration:underline}
+.ftr .fine{grid-column:1/-1;border-top:1px solid var(--line-dk);padding-top:22px;font-size:14px}
+
+/* mobile bar and toast */
+.mbar{display:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--ink);color:var(--marble);padding:14px 20px;border-radius:4px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:80;max-width:calc(100vw - 32px);text-align:center;border:1px solid var(--brass)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* menu page: the dinner card on marble */
+.menupage{position:relative;overflow:clip}
+.menupage>*{position:relative;z-index:1}.menupage>.marble{position:absolute;z-index:0}
+.mnote{margin-top:18px;max-width:34em;color:var(--mute);font-size:16px}
+.favs{display:flex;gap:18px;overflow-x:auto;padding:6px 32px 24px;margin:34px -32px 0;scroll-snap-type:x proximity;scroll-padding-inline:32px;scrollbar-width:thin}
+.fav{flex:none;width:216px;scroll-snap-align:start}
+.fav .im{aspect-ratio:1;background:#fff;overflow:hidden;outline:1px solid var(--brass-lt);outline-offset:-8px}
+.fav .im img{width:100%;height:100%;object-fit:contain}
+.fav .im.br{background:var(--stone)}.fav .im.br img{object-fit:cover}
+.fav h3{font:italic 500 21px/1.2 "Newsreader",serif;text-transform:none;letter-spacing:0;margin-top:12px}
+.fav p{font-size:14px;color:var(--mute);line-height:1.4;margin-top:3px}
+.fav b{display:block;font:500 21px "Antonio";letter-spacing:.04em;margin-top:6px}
+.chips{position:sticky;top:var(--h);z-index:40;background:var(--marble);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+.chips .wrap{display:flex;gap:6px;overflow-x:auto;padding:8px 32px;scrollbar-width:none}.chips .wrap::-webkit-scrollbar{display:none}
+.chip{flex:none;text-decoration:none;font:500 17px/1 "Antonio";letter-spacing:.1em;text-transform:uppercase;padding:14px 16px;border-radius:3px;border:1px solid transparent;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+.chip:hover{border-color:var(--brass)}.chip.on{background:var(--ink);color:var(--marble)}
+.mcard{background:var(--paper);max-width:900px;margin:40px auto 0;padding:24px 64px 36px;outline:1px solid var(--brass);outline-offset:-12px;position:relative}
+.msec{padding:52px 0 6px;scroll-margin-top:calc(var(--h) + 62px)}
+.msec h2{font-size:clamp(34px,4vw,48px);letter-spacing:.05em;max-width:none;display:flex;align-items:center;gap:20px}
+.msec h2:after{content:"";flex:1;height:1px;background:var(--brass)}
+.snote{font-size:15px;color:var(--mute);margin-top:8px}
+.mlist{list-style:none;margin-top:14px}
+.mi{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.mi:last-child{border-bottom:0}
+.mi .it i{font-size:21px}
+.mi .it small{font-size:15px}
+.mi .dots{align-self:flex-end;transform:translateY(-8px)}
+.mfoot{margin-top:40px;font-size:15px;color:var(--mute);text-align:center}
+.mcta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding-block:44px 80px}
+.mcta .btn.ghost{color:var(--ink);border-color:var(--ink)}.mcta .btn.ghost:hover{background:var(--ink);color:var(--marble)}
+
+/* visit page */
+.info{background:var(--paper)}
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px}
+.vgrid h3{font-size:34px;margin-bottom:16px}
+.vgrid p,.vgrid li{font-size:18px}
+.vgrid p+p{margin-top:12px}
+.vgrid ul{list-style:none;display:grid;gap:8px}
+.vgrid li{padding-left:22px;position:relative}.vgrid li:before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--brass)}
+.soft{color:var(--mute);font-size:16px}
+.lnk{font-weight:600;display:inline-block;padding:6px 0;text-underline-offset:4px}
+
+/* ---- v2: photography first ---- */
+.hdr--over{position:fixed;left:0;right:0;top:0;background:linear-gradient(#004101D9,#00410100);border-bottom-color:transparent;transition:background .35s,border-color .35s}
+.hdr--over.solid{background:var(--night);border-bottom-color:var(--line-dk)}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.px{overflow:hidden}
+.px img{width:100%;height:100%;object-fit:cover;transform:translate3d(0,var(--py,0px),0) scale(1.14);will-change:transform}
+.ob{outline:1px solid var(--brass);outline-offset:12px}
+
+/* hero: full-bleed room */
+.hero2{position:relative;min-height:100vh;min-height:max(640px,100svh);display:flex;align-items:flex-end;background:var(--night);color:var(--marble);overflow:hidden;isolation:isolate}
+.hbg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.hbg img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform-origin:62% 50%;animation:kb 28s ease-in-out infinite alternate}
+.hbg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#004101E6 0,#004101B3 40%,#00410140 72%,#00410126 100%),linear-gradient(0deg,#004101 0,#00410100 40%)}
+.hwrap{width:100%;padding-block:calc(var(--h) + 48px) 84px}
+.hero2 h1{font-weight:300;font-size:clamp(58px,9.2vw,148px);line-height:.94;letter-spacing:.02em;max-width:9.4em}
+.ln{display:block;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}.ln:nth-child(2){animation-delay:.12s}.ln:nth-child(3){animation-delay:.24s}
+.hero2 .sub{max-width:36em}
+.hero2 .sub,.hero2 .cta,.hero2 .status,.hero2 .proof{animation:rise 1.1s cubic-bezier(.2,.8,.2,1) .42s both}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.1)}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.sub{font-size:20px;line-height:1.55;max-width:28em;margin-top:26px;color:#F1EADB}
+
+/* signature dish: dark, big italic */
+.sigf{position:relative;background:var(--night);color:var(--marble);padding:128px 0;overflow:hidden;isolation:isolate}
+.sigf:before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(90deg,transparent 0 156px,var(--panel) 156px 157px)}
+.sigf .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:104px;align-items:center}
+.sf-fig{position:relative;aspect-ratio:4/5.2;max-height:84svh;width:100%}
+.sf-main{position:absolute;inset:0 20% 14% 12px;background:var(--wood)}
+.sf-sub{position:absolute;right:0;bottom:0;width:50%;aspect-ratio:4/5;border:10px solid var(--night);background:var(--wood)}
+.sf-copy h2{font:italic 500 clamp(46px,5.8vw,92px)/1.02 "Newsreader",serif;text-transform:none;letter-spacing:-.01em;max-width:10ch;color:var(--marble)}
+.sf-copy .lead{color:#F1EADB;margin-top:26px}
+.sf2{margin-top:48px;padding-top:30px;border-top:1px solid var(--line-dk);max-width:30em}
+.sf2 h3{font:italic 500 36px/1.1 "Newsreader",serif;text-transform:none;letter-spacing:0}
+.sf2 p{color:var(--mute-dk);margin-top:8px;font-size:17px}
+.sf-copy .cta{margin-top:40px}
+
+/* photo band: one line over the room */
+.pband{position:relative;min-height:min(86svh,800px);display:flex;align-items:center;color:var(--marble);background:var(--night);overflow:hidden;isolation:isolate}
+.pimg{position:absolute;inset:-7% 0;z-index:-2}
+.pimg img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;transform:translate3d(0,var(--py,0px),0)}
+.pband:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#004101D9 0,#0041014D 72%),linear-gradient(#004101 0,#00410100 22%,#00410100 76%,#004101 100%)}
+.bigline{font-weight:300;font-size:clamp(44px,7.4vw,120px);line-height:.98;letter-spacing:.025em;text-transform:uppercase;font-family:"Antonio",sans-serif;max-width:10.5em}
+.pcap{position:absolute;right:32px;bottom:22px;font-size:13px;color:var(--mute-dk);max-width:30em;text-align:right}
+
+/* from the kitchen: marble, photo stays while the list scrolls */
+.kitchen{background:var(--marble)}
+.kitchen .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:96px;align-items:start}
+.kfig{position:sticky;top:calc(var(--h) + 36px);aspect-ratio:4/5;max-height:calc(100svh - var(--h) - 72px);width:calc(100% - 24px);margin:12px;background:var(--stone)}
+.kitchen .th{width:92px;height:92px}
+.kitchen .rows li{padding:14px 0}
+.kitchen .it i{font-size:25px}
+
+/* around the table: horizontal photo track */
+.evening{background:var(--night);color:var(--marble);padding:112px 0 96px;overflow:hidden}
+.evening h2{color:var(--marble)}
+.ehead{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.gnav{display:flex;gap:10px}
+.gnav button{width:52px;height:52px;border:1px solid var(--brass);background:transparent;color:var(--marble);border-radius:50%;cursor:pointer;font:400 22px/1 "Hanken Grotesk",sans-serif}
+.gnav button:hover{background:var(--brass);color:var(--ink)}
+.track{--gut:max(32px,calc((100vw - 1240px)/2 + 32px));display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:48px var(--gut) 18px;scroll-padding-inline:var(--gut);scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track figure{flex:none;height:min(68svh,580px);aspect-ratio:3/4;scroll-snap-align:start;overflow:hidden;background:var(--wood)}
+.track img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.track figure:hover img{transform:scale(1.04)}
+.cap{font-size:14px;color:var(--mute-dk);margin-top:26px}
+
+/* menu banner */
+.mban{position:relative;min-height:clamp(340px,50svh,500px);display:flex;align-items:flex-end;background:var(--night);color:var(--marble);overflow:hidden;isolation:isolate}
+.mbg{position:absolute;inset:0;z-index:-1}
+.mbg img{width:100%;height:100%;object-fit:cover;object-position:50% 56%}
+.mbg:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#004101F2 0,#00410180 55%,#00410159 100%)}
+.mban .wrap{width:100%;padding-block:calc(var(--h) + 44px) 44px}
+.mban h1{font-weight:300;font-size:clamp(76px,13vw,200px);line-height:.88;letter-spacing:.03em}
+.mban .mnote{margin-top:20px;font-size:15px;color:#E4DCC8;max-width:44em}
+.wrap.mfavs{padding-top:12px;padding-bottom:26px}
+
+/* visit hero: dark and photographic */
+.vhero{position:relative;background:var(--night);color:var(--marble);overflow:hidden;isolation:isolate}
+.vhero .vbg{position:absolute;inset:0;z-index:-1}
+.vhero .vbg img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.vhero .vbg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#004101EB 0,#004101A6 52%,#00410140 100%),linear-gradient(0deg,#004101 0,#00410100 30%)}
+.vhero .wrap{display:flex;align-items:flex-end;min-height:clamp(480px,64svh,640px);padding-block:calc(var(--h) + 40px) 64px}
+.vhero h1{font-weight:300;font-size:clamp(64px,10vw,150px);line-height:.92;letter-spacing:.03em}
+.vhero .lead{max-width:24em;color:#F1EADB}
+
+@media (max-width:980px){
+ .nav,.hr{display:none}.burger{display:block}
+ .sec{padding:68px 0}
+ .reserve .wrap{grid-template-columns:1fr;gap:44px}
+ .ftr .wrap{grid-template-columns:1fr 1fr}.ftr .wrap>div:first-child{grid-column:1/-1}
+ .vgrid{grid-template-columns:1fr;gap:38px}
+ .mcard{padding:12px 28px 28px;margin-top:28px}
+ .wrap{padding-left:20px;padding-right:20px}.favs{padding-left:20px;padding-right:20px;margin-left:-20px;margin-right:-20px;scroll-padding-inline:20px}.chips .wrap{padding:8px 20px}
+ body{padding-bottom:72px}
+ .mbar{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--night);padding:8px 10px calc(8px + env(safe-area-inset-bottom));gap:8px;border-top:1px solid var(--line-dk)}
+ .mbar a{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:3px;color:var(--marble);text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line-dk)}
+ .mbar a.main{background:var(--coral);border-color:var(--coral);color:var(--paper)}
+ .toast{bottom:92px}
+}
+@media (max-width:640px){
+ .rform{padding:28px 22px 26px}.two,.three{grid-template-columns:1fr}.three{grid-template-columns:1fr 1fr}.three .fld:first-child{grid-column:1/-1}
+}
+@media (max-width:420px){
+ body{font-size:16.5px}
+ .brand img{height:26px}.brand{padding:9px 0}
+ .sub{font-size:18px;margin-top:20px}.cta{margin-top:26px}.status{margin-top:22px}
+ .th{width:64px;height:64px}.it i{font-size:20px}.pr{font-size:20px}
+ .mcard{padding:8px 20px 24px}.mi .it i{font-size:20px}
+ .ftr .wrap{grid-template-columns:1fr}.ftr img{width:240px}
+}
+
+@media (max-width:980px){
+ .hero2 .hbg img{object-position:50% 38%}
+ .hbg:after{background:linear-gradient(0deg,#004101 0,#004101E0 46%,#00410159 100%)}
+ .hwrap{padding-block:calc(var(--h) + 28px) 44px}
+ .sigf{padding:84px 0}.sigf .wrap,.kitchen .wrap{grid-template-columns:1fr;gap:56px}
+ .sf-fig{max-height:none;aspect-ratio:4/4.6;max-width:560px}
+ .pband{min-height:72svh}.pcap{left:20px;right:20px;text-align:left}
+ .kfig{position:relative;top:auto;max-height:none;aspect-ratio:4/4.4;max-width:560px}
+ .evening{padding:80px 0 72px}.track{--gut:20px}.track figure{height:min(62svh,460px)}
+ .vhero .wrap{min-height:0;padding-block:calc(var(--h) + 56px) 48px}
+ .mban .wrap{padding-block:calc(var(--h) + 28px) 28px}
+}
+@media (max-width:420px){
+ .hero2 h1{font-size:clamp(50px,15vw,66px)}.hero2 .sub{font-size:18px;margin-top:20px}
+ .bigline{font-size:clamp(40px,12vw,56px)}.sf-copy h2{font-size:clamp(42px,12vw,56px)}
+ .gnav button{width:46px;height:46px}.mban h1,.vhero h1{font-size:clamp(60px,19vw,84px)}
+}
+@media (prefers-reduced-motion:reduce){
+ .hbg img,.ln,.hero2 .sub,.hero2 .cta,.hero2 .status,.hero2 .proof{animation:none}
+ .js .rv{opacity:1;transform:none;transition:none}
+ .px img,.pimg img{transform:none;will-change:auto}.track img{transition:none}
+ html{scroll-behavior:auto}
+}
+
+
+/* ---- v2 ---- */
+@view-transition{navigation:auto}
+.brand img{view-transition-name:brand}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.3s}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* arrival moment: logo and a brass line, then the curtain lifts (once per session, home page only) */
+.curtain{display:none;position:fixed;inset:0;z-index:300;background:var(--night);flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.arrive .curtain{display:flex;animation:curt 1.2s cubic-bezier(.7,0,.2,1) both}
+.curtain.done{display:none!important}
+.curtain img{width:min(300px,62vw);height:auto;animation:clogo .8s ease .1s both}
+.curtain i{display:block;height:1px;background:var(--brass);animation:cline .7s ease .25s both}
+@keyframes clogo{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes cline{from{width:0}to{width:min(220px,48vw)}}
+@keyframes curt{0%,64%{transform:none;visibility:visible}100%{transform:translateY(-100%);visibility:hidden}}
+.arrive .ln{animation-delay:.72s}.arrive .ln:nth-child(2){animation-delay:.84s}.arrive .ln:nth-child(3){animation-delay:.96s}
+.arrive .hero2 .sub,.arrive .hero2 .cta,.arrive .hero2 .status,.arrive .hero2 .proof{animation-delay:1.1s}
+.hbg picture{display:block;width:100%;height:100%}
+
+/* language button */
+.lang{white-space:nowrap}
+.lang span{opacity:.55;transition:opacity .2s,color .2s}
+html:not([lang=ar]) .lang .l-en,html[lang=ar] .lang .l-ar{opacity:1;color:var(--brass-lt)}
+.mnav .mlang{margin-top:26px;align-self:flex-start;font-size:18px;padding:12px 18px}
+.mnav .mlang span{display:inline}
+
+/* photo track counter */
+.gcount{align-self:center;font-size:14px;color:var(--mute-dk);min-width:3.6em;text-align:center;font-variant-numeric:tabular-nums}
+
+/* reservation: three short steps */
+.rflow{display:grid;gap:18px}
+.rstep{font-size:14px;color:var(--mute);letter-spacing:.04em}.rstep b{color:var(--ink)}
+.rpane{display:grid;gap:18px}.rpane[hidden]{display:none}
+.rlab{font:500 17px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px}
+.dchip,.tchip,.ochip{font:500 16px/1.2 "Hanken Grotesk",sans-serif;border:1px solid #827B6D;background:#fff;color:var(--ink);border-radius:3px;padding:10px 14px;min-height:48px;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.dchip{min-width:78px}.dchip b{font:500 17px "Antonio";letter-spacing:.08em;text-transform:uppercase}.dchip span{font-size:14px}.dchip small{font-size:12px;color:var(--coral);font-weight:600}
+.ochip{flex-direction:row}
+.dchip:hover,.tchip:hover:not(:disabled),.ochip:hover{border-color:var(--ink)}
+.dchip[aria-pressed=true],.tchip[aria-pressed=true],.ochip[aria-pressed=true]{background:var(--ink);color:var(--marble);border-color:var(--ink)}
+.dchip[aria-pressed=true] small{color:var(--brass-lt)}
+.tchip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.stepper{display:inline-flex;align-items:center;border:1px solid #827B6D;background:#fff;border-radius:3px;width:max-content}
+.stepper button{width:54px;height:52px;border:0;background:transparent;font:400 26px/1 "Hanken Grotesk",sans-serif;cursor:pointer;color:var(--ink)}
+.stepper button:hover{background:var(--stone)}
+.stepper output{min-width:58px;text-align:center;font:500 26px "Antonio"}
+.rnav{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.rform .btn.ghost{color:var(--ink);border-color:var(--ink)}.rform .btn.ghost:hover{background:var(--ink);color:var(--marble)}
+.rform .btn:disabled{opacity:.4;cursor:not-allowed}
+.rdone{display:grid;gap:16px}.rdone[hidden]{display:none}
+.rsum{font:italic 500 22px/1.3 "Newsreader",serif;padding-bottom:12px;border-bottom:1px solid var(--line)}
+
+/* menu: search, photo lightbox */
+.msearch{padding-block:4px 16px}
+.msearch input{width:100%;max-width:440px;font:400 17px "Hanken Grotesk",sans-serif;padding:12px 16px;min-height:48px;border:1px solid #827B6D;border-radius:3px;background:#fff;color:var(--ink)}
+.msearch input:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:var(--coral)}
+.mnone{margin-top:12px;color:var(--mute)}
+.fav{cursor:pointer}.fav:hover .im{outline-color:var(--brass)}
+.mi[hidden],.msec[hidden],.chip[hidden]{display:none}
+.mi .it i{display:inline}
+.mi.has-ph{cursor:pointer}.mi.has-ph:hover .it i{color:var(--coral)}
+.mi .cam{color:var(--brass);margin-inline-start:8px;vertical-align:-2px;display:inline-block}
+.lb{position:fixed;inset:0;z-index:200;background:#004101F2;display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.lb[hidden]{display:none}
+.lb figure{max-width:min(900px,100%);max-height:100%;display:grid;gap:16px;text-align:center;color:var(--marble);cursor:default}
+.lb img{width:auto;height:auto;max-width:100%;max-height:66svh;object-fit:contain;margin:0 auto;outline:1px solid var(--brass);outline-offset:8px}
+.lb figcaption i{display:block;font:italic 500 28px/1.2 "Newsreader",serif}
+.lb figcaption span{display:block;color:var(--mute-dk);margin-top:4px}
+.lb figcaption b{display:block;font:500 24px "Antonio";letter-spacing:.04em;color:var(--brass-lt);margin-top:8px}
+.lb-x{position:absolute;top:14px;inset-inline-end:14px;width:52px;height:52px;border-radius:50%;border:1px solid var(--brass);background:transparent;color:var(--marble);font:300 34px/1 "Hanken Grotesk",sans-serif;cursor:pointer}
+.lb-x:hover{background:var(--brass);color:var(--ink)}
+
+/* visit: map card */
+.mapcard{display:block;text-decoration:none;border:1px solid var(--brass);background:var(--marble);padding:24px 26px;outline:1px solid var(--line);outline-offset:-8px;transition:background .2s}
+.mapcard:hover{background:var(--stone)}
+.mapcard .addr{display:block;font-size:19px;line-height:1.5}
+.mapcard .go{display:inline-block;margin-top:14px;font:500 18px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+.mapcard .go:after{content:" \2192"}
+
+/* Arabic (right to left) */
+html[lang=ar]{--ar-d:"Markazi Text";--ar-b:"IBM Plex Sans Arabic"}
+html[lang=ar] body{font-family:var(--ar-b),"Hanken Grotesk",system-ui,sans-serif;font-size:18px;line-height:1.8}
+html[lang=ar] *{letter-spacing:0!important;text-transform:none!important}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] h4,html[lang=ar] .nav a,html[lang=ar] .mnav a,html[lang=ar] .btn,html[lang=ar] .chip,html[lang=ar] .rlab,html[lang=ar] .fld label,html[lang=ar] .ways span,html[lang=ar] .lang,html[lang=ar] .mapcard .go,html[lang=ar] .dchip b{font-family:var(--ar-d),var(--ar-b),sans-serif;font-weight:600}
+html[lang=ar] .it i,html[lang=ar] .fav h3,html[lang=ar] .sf-copy h2,html[lang=ar] .sf2 h3,html[lang=ar] .rsum,html[lang=ar] .lb figcaption i{font-family:var(--ar-d),var(--ar-b),serif;font-style:normal;font-weight:600}
+html[lang=ar] .it i{font-size:21px;line-height:1.5}
+html[lang=ar] .nav a{font-size:19px}
+html[lang=ar] .btn,html[lang=ar] .chip{font-size:17px}
+html[lang=ar] .hero2 h1{font-weight:500;font-size:clamp(46px,7.4vw,120px);line-height:1.2;max-width:12em}
+html[lang=ar] .bigline{font-weight:500;font-size:clamp(38px,6vw,100px);line-height:1.3;max-width:12em}
+html[lang=ar] .sf-copy h2{font-size:clamp(40px,5vw,80px);line-height:1.25;max-width:12ch}
+html[lang=ar] .mban h1,html[lang=ar] .vhero h1{font-weight:500;font-size:clamp(56px,10vw,160px);line-height:1.15}
+html[lang=ar] .sec h2{line-height:1.25;max-width:16ch}
+html[lang=ar] .mnav a{font-size:34px;line-height:1.4}
+html[dir=rtl] a[href^="tel:"],html[dir=rtl] .pr,html[dir=rtl] bdi{direction:ltr;unicode-bidi:isolate}
+html[dir=rtl] .nav{margin-left:0;margin-right:16px}
+html[dir=rtl] .hr,html[dir=rtl] .burger{margin-left:0;margin-right:auto}
+html[dir=rtl] .vhero .vbg:after{background:linear-gradient(270deg,#004101EB 0,#004101A6 52%,#00410140 100%),linear-gradient(0deg,#004101 0,#00410100 30%)}
+html[dir=rtl] .pband:after{background:linear-gradient(270deg,#004101D9 0,#0041014D 72%),linear-gradient(#004101 0,#00410100 22%,#00410100 76%,#004101 100%)}
+html[dir=rtl] .sf-main{inset:0 12px 14% 20%}
+html[dir=rtl] .sf-sub{right:auto;left:0}
+html[dir=rtl] .pcap{right:auto;left:32px;text-align:left}
+html[dir=rtl] .vgrid li{padding-left:0;padding-right:22px}html[dir=rtl] .vgrid li:before{left:auto;right:0}
+html[dir=rtl] .mapcard .go:after{content:" \2190"}
+html[dir=rtl] .gnav button{transform:scaleX(-1)}
+html[dir=rtl] .hero2 .hwrap{text-align:right}
+@media (min-width:981px){html[dir=rtl] .hbg:after{background:linear-gradient(270deg,#004101E6 0,#004101B3 40%,#00410140 72%,#00410126 100%),linear-gradient(0deg,#004101 0,#00410100 40%)}}
+@media (max-width:980px){html[dir=rtl] .pcap{left:20px;right:20px;text-align:right}}
+
+@media (prefers-reduced-motion:reduce){
+ @view-transition{navigation:none}
+ .arrive .curtain{display:none}
+ .arrive .ln,.arrive .hero2 .sub,.arrive .hero2 .cta,.arrive .hero2 .status,.arrive .hero2 .proof{animation-delay:0s}
+}
+
+/* venue theme */
+/* Sapori theme: a sunlit trattoria. Deep logo green and cream, Gloock (heavy high-contrast serif, close to the sign) with Outfit,
+   split hero (green wall, photo on the right), the elongated-hexagon window lattice, green check cloth, the round hanging sign.
+   Look only, no markup change. */
+:root{
+ --serif:"Gloock","Playfair Display",Georgia,serif;
+ --sans:"Outfit","Hanken Grotesk",system-ui,sans-serif;
+ --gold:#B8923F;--gold-lt:#E2C07A;
+ --lat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='120' viewBox='0 0 56 120'%3E%3Cpath d='M28 0L56 20V100L28 120L0 100V20Z' fill='none' stroke='%23FFF8F2' stroke-opacity='.075' stroke-width='1.5'/%3E%3C/svg%3E");
+ --lat-dk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='120' viewBox='0 0 56 120'%3E%3Cpath d='M28 0L56 20V100L28 120L0 100V20Z' fill='none' stroke='%23004101' stroke-opacity='.07' stroke-width='1.5'/%3E%3C/svg%3E");
+ --orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='14' viewBox='0 0 132 14'%3E%3Cpath d='M0 7H54M78 7H132' stroke='%23B8923F' stroke-width='1.2'/%3E%3Cpath d='M66 0Q67.2 5.8 73 7Q67.2 8.2 66 14Q64.8 8.2 59 7Q64.8 5.8 66 0Z' fill='%23B8923F'/%3E%3C/svg%3E");
+ --ring:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cpath id='c' d='M100 100m-79 0a79 79 0 1 1 158 0a79 79 0 1 1-158 0'/%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='86' fill='none' stroke='%23004101' stroke-width='30'/%3E%3Ccircle cx='100' cy='100' r='70.5' fill='none' stroke='%23E2C07A' stroke-opacity='.8' stroke-width='.8'/%3E%3Ctext font-family='Arial,Helvetica,sans-serif' font-size='10.5' font-weight='700' fill='%23FFF8F2'%3E%3CtextPath href='%23c' textLength='492' lengthAdjust='spacing'%3EARTISANAL ITALIAN CUISINE %C2%B7 EST. 2019 %C2%B7%3C/textPath%3E%3C/text%3E%3C/svg%3E");
+ --cam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 8h3l1.5-2h7L17 8h3v11H4z' fill='none' stroke='%23B8923F' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='13' r='3.2' fill='none' stroke='%23B8923F' stroke-width='1.6'/%3E%3C/svg%3E");
+ --check:linear-gradient(90deg,rgba(0,65,1,.5) 50%,transparent 50%),linear-gradient(rgba(0,65,1,.5) 50%,transparent 50%);
+ --check-lt:linear-gradient(90deg,rgba(255,248,242,.16) 50%,transparent 50%),linear-gradient(rgba(255,248,242,.16) 50%,transparent 50%);
+}
+
+/* type */
+body{font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.62}
+h1,h2,h3{font-family:var(--serif);font-weight:400;text-transform:none;letter-spacing:-.005em;line-height:1.05}
+.btn,.lang,.dchip,.tchip,.ochip,.stepper button,.msearch input,.fld input,.fld select,.fld textarea,.lb-x,.gnav button{font-family:var(--sans)}
+.btn{font-weight:500;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;border-radius:999px;padding:15px 30px}
+.btn.sm{font-size:12.5px;padding:11px 22px}
+.lang{font-weight:500;font-size:13px;letter-spacing:.1em;border-radius:999px;padding:10px 16px}
+.nav a{font:500 13px/1 var(--sans);letter-spacing:.2em;padding:14px 13px}
+.mnav a{font:400 36px/1.1 var(--serif);letter-spacing:0;text-transform:none}
+.brand img{height:28px}
+.chip{font:500 12.5px/1 var(--sans);letter-spacing:.16em;border-radius:999px;padding:14px 18px}
+.ftr h4{font:500 12.5px/1 var(--sans);letter-spacing:.22em}
+.ways span,.fld label,.rlab{font:500 12.5px/1.2 var(--sans);letter-spacing:.2em}
+.ways span{min-width:104px}
+.dchip b{font:500 13px var(--sans);letter-spacing:.14em}
+.stepper output{font:400 26px var(--serif)}
+.mapcard .go{font:500 13px var(--sans);letter-spacing:.2em}
+.pr{font:500 18px/1.2 var(--sans);letter-spacing:.02em;font-variant-numeric:lining-nums tabular-nums}
+.fav b,.lb figcaption b{font:500 17px var(--sans);letter-spacing:.03em;font-variant-numeric:lining-nums}
+.it i,.fav h3,.sig b,.sf2 h3,.rsum,.lb figcaption i{font-family:var(--serif);font-style:normal;font-weight:400;letter-spacing:0}
+.it i{font-size:21px;line-height:1.2}
+.kitchen .it i{font-size:25px}
+.fav h3{font-size:20px}
+.rsum{font-size:22px}
+.sec h2{font-size:clamp(38px,4.3vw,62px);max-width:14ch;line-height:1.02}
+.vgrid h3{font-size:30px}
+.msec h2{font-size:clamp(26px,3vw,36px);letter-spacing:.06em;text-transform:uppercase}
+.snote{font-size:15px}
+
+/* ornament: the lockup's rule with its four-point star */
+.rule{width:132px;height:14px;background:var(--orn) left center/contain no-repeat;margin:22px 0 0}
+html[dir=rtl] .rule{background-position:right center}
+
+/* focus ring: dark on cream, gold on green */
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.hdr :focus-visible,.mnav :focus-visible,.hero2 :focus-visible,.pband :focus-visible,.evening :focus-visible,.ftr :focus-visible,.vhero :focus-visible,.mban :focus-visible,.lb :focus-visible,.mbar :focus-visible,.curtain :focus-visible{outline-color:var(--gold-lt)}
+
+/* header and arrival */
+.hdr--over{background:linear-gradient(#004101D9,#00410100) no-repeat;background-size:100% 100%}
+.hdr--over.solid,.hdr--over:has(.burger[aria-expanded=true]){background:var(--night)}
+.curtain img{width:min(300px,62vw)}
+.curtain i{background:var(--gold-lt)}
+.ftr img{width:260px}
+
+/* hero: green wall with the lockup line, a tall sunlit photo on the right */
+.hero2{background:var(--night) var(--lat);align-items:flex-end}
+.hbg{inset:var(--h) 0 0 54%;z-index:-1}
+.hbg:after,html[dir] .hbg:after{background:linear-gradient(0deg,#0041014D 0,#00410100 30%)}
+.hbg img{object-position:40% 50%;transform-origin:50% 50%}
+.hero2 .hwrap{width:54%;max-width:none;margin:0;padding-block:calc(var(--h) + 56px) 76px;padding-inline:max(32px,calc((100vw - 1240px)/2 + 32px)) 56px}
+.hwrap:before{content:"EST. 2019  \B7  ARTISANAL ITALIAN CUISINE";display:block;font:500 12px/1.4 var(--sans);letter-spacing:.3em;color:var(--gold-lt);margin-bottom:26px;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}
+.arrive .hwrap:before{animation-delay:.6s}
+html[lang=ar] .hwrap:before{content:"منذ 2019  \B7  مطبخ إيطالي حِرفي"}
+.hero2 h1{font:400 clamp(46px,5.5vw,92px)/1.0 var(--serif);letter-spacing:-.01em;max-width:none}
+.hero2 .ln:nth-child(2){color:var(--gold-lt)}
+.hero2 .sub{font-size:19px;max-width:30em;color:var(--ondark);margin-top:28px}
+.hero2 .cta{margin-top:34px}
+.hero2 .btn.ghost{border-color:var(--gold-lt);color:var(--paper)}
+.hero2 .btn.ghost:hover{background:var(--gold-lt);border-color:var(--gold-lt);color:var(--night)}
+.proof{letter-spacing:.02em}
+
+/* signature: cream page, big green headline, a pizza in a square print and a round sign */
+.sigf{background:var(--paper);color:var(--ink);padding:120px 0}
+.sigf:before{background:none}
+.sf-main{inset:0 17% 12% 12px;background:var(--stone)}
+.sf-sub{width:48%;aspect-ratio:1;border:9px solid var(--paper);border-radius:50%;background:var(--stone)}
+.sf-sub:after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--ring) center/100% 100% no-repeat;pointer-events:none}
+.sf-copy h2{font:400 clamp(44px,5vw,80px)/1 var(--serif);letter-spacing:-.01em;max-width:9ch;color:var(--night)}
+.sf-copy .lead{color:var(--ink)}
+.sf2{border-top:1px solid var(--line)}
+.sf2 h3{font-size:34px;color:var(--night)}
+.sf2 p{color:var(--mute)}
+.sigf .btn.ghost{color:var(--night);border-color:var(--night)}
+.sigf .btn.ghost:hover{background:var(--night);color:var(--paper);border-color:var(--night)}
+
+/* band: the room on the left, one green line on the right */
+.pband{display:block;min-height:min(80svh,760px);background:var(--night) var(--lat)}
+.pband:after{display:none}
+.pimg{inset:-7% auto -7% 0;width:56%}
+.pband .wrap{position:absolute;inset:0 0 0 56%;max-width:none;margin:0;padding:0 clamp(32px,5.5vw,96px);display:flex;align-items:center}
+.bigline{font:400 clamp(30px,3.6vw,58px)/1.1 var(--serif);letter-spacing:-.005em;text-transform:none;max-width:12em;color:var(--paper)}
+
+/* kitchen */
+.kitchen{background:var(--marble)}
+.kfig{background:var(--stone)}
+.th{background:var(--stone);border:2px solid var(--paper);box-shadow:0 0 0 1px var(--line)}
+
+/* around the table: prints with a cream mat on the green wall */
+.evening{background:var(--night) var(--lat)}
+.evening h2{font-size:clamp(38px,4.3vw,62px)}
+.track figure{outline:10px solid var(--paper);outline-offset:-10px;border-radius:2px;background:var(--wood)}
+.gnav button{border-color:var(--gold-lt)}
+.gnav button:hover{background:var(--gold-lt);color:var(--night)}
+
+/* reserve: window lattice behind the paper card */
+.reserve{background:var(--marble) var(--lat-dk)}
+.reserve .marble{display:none}
+.rform{border-radius:2px;background-color:var(--paper);background-image:var(--check);background-size:16px 16px;background-repeat:repeat-x;background-position:0 0;padding-top:54px}
+.dchip,.tchip{border-radius:999px}
+.dchip{border-radius:18px;min-width:76px}
+.ochip{border-radius:999px}
+.stepper{border-radius:999px;overflow:hidden}
+.fld input,.fld select,.fld textarea,.msearch input{border-radius:8px}
+.msearch input{border-radius:999px;padding-inline:20px}
+
+/* footer: lattice, a strip of check cloth along the top */
+.ftr{background:var(--night) var(--lat);position:relative;padding-top:84px}
+.ftr:before{content:"";position:absolute;inset:0 0 auto 0;height:16px;background-image:var(--check-lt);background-size:16px 16px;background-repeat:repeat-x}
+
+/* phones: the footer carries the bottom-bar clearance, so no cream strip shows under it */
+@media (max-width:980px){body{padding-bottom:0}.ftr{padding-bottom:calc(48px + 72px)}}
+
+/* menu page: green banner split like the hero, a printed card with a check-cloth edge */
+.menupage .marble{display:none}
+.menupage{background:var(--marble) var(--lat-dk)}
+.mban{background:var(--night) var(--lat);min-height:clamp(340px,46svh,460px)}
+.mbg{inset:var(--h) 0 0 56%}
+.mbg:after{display:none}
+.mban .wrap{width:56%;max-width:none;margin:0;padding-inline:max(32px,calc((100vw - 1240px)/2 + 32px)) 48px}
+.mban h1{font:400 clamp(60px,9vw,136px)/.95 var(--serif);letter-spacing:-.015em}
+.mban .mnote{color:var(--mutedk);font-size:16px}
+.fav .im{outline-color:var(--gold)}
+.chip.on{background:var(--night);color:var(--paper)}
+.mcard{border-radius:2px;background-color:var(--paper);background-image:var(--check);background-size:16px 16px;background-repeat:repeat-x;background-position:0 0;padding-top:48px;outline-color:var(--gold)}
+.mcard .msec:first-of-type{padding-top:40px}
+.mi{display:grid;grid-template-columns:auto minmax(14px,1fr) auto;column-gap:12px;align-items:baseline}
+.mi .it{display:contents}
+.mi .it i{grid-column:1;grid-row:1;display:inline}
+.mi .dots{grid-column:2;grid-row:1;align-self:end;transform:translateY(-6px);border-bottom:1.5px dotted var(--gold)}
+.mi .pr{grid-column:3;grid-row:1}
+.mi .it small{grid-column:1/-1;grid-row:2;display:block;margin-top:3px;max-width:36em}
+.mi .cam{display:none}
+.mi.has-ph .it i:after{content:"";display:inline-block;width:15px;height:15px;margin-inline-start:9px;vertical-align:-1px;background:var(--cam) center/contain no-repeat}
+.mi.has-ph:hover .it i{color:var(--coral)}
+.mcta .btn.ghost{color:var(--night);border-color:var(--night)}
+.mcta .btn.ghost:hover{background:var(--night);color:var(--paper)}
+
+/* visit */
+.vhero{background:var(--night) var(--lat)}
+.vhero .vbg{inset:var(--h) 0 0 54%}
+.vhero .vbg:after,html[dir=rtl] .vhero .vbg:after{background:linear-gradient(0deg,#0041014D 0,#00410100 30%)}
+.vhero .vbg img{object-position:50% 20%}
+.vhero .wrap{width:54%;max-width:none;margin:0;padding-inline:max(32px,calc((100vw - 1240px)/2 + 32px)) 56px}
+.vhero h1{font:400 clamp(48px,6vw,96px)/1 var(--serif);letter-spacing:-.01em}
+.vhero .lead{color:var(--ondark)}
+.vhero .btn.ghost{border-color:var(--gold-lt);color:var(--paper)}
+.vhero .btn.ghost:hover{background:var(--gold-lt);color:var(--night)}
+.info{background:var(--paper)}
+.mapcard{border-color:var(--gold);border-radius:2px}
+.mapcard .go{color:var(--coral)}
+
+/* RTL mirror of the split layouts */
+html[dir=rtl] .hbg,html[dir=rtl] .vhero .vbg{inset:var(--h) 54% 0 0}
+html[dir=rtl] .mbg{inset:var(--h) 56% 0 0}
+html[dir=rtl] .hero2 .hwrap,html[dir=rtl] .vhero .wrap{margin-inline:auto 0;padding-inline:56px max(32px,calc((100vw - 1240px)/2 + 32px))}
+html[dir=rtl] .hero2 .hwrap{margin:0 0 0 auto}
+html[dir=rtl] .vhero .wrap{margin:0 0 0 auto}
+html[dir=rtl] .mban .wrap{margin:0 0 0 auto;padding-inline:48px max(32px,calc((100vw - 1240px)/2 + 32px))}
+html[dir=rtl] .pimg{inset:-7% 0 -7% auto}
+html[dir=rtl] .pband .wrap{inset:0 56% 0 0}
+
+/* tablet and phone: photo on top, green text block below */
+@media (max-width:980px){
+ .hero2{display:block;min-height:0}
+ .hbg,html[dir=rtl] .hbg{position:relative;inset:auto;height:min(62svh,520px);z-index:0}
+ .hero2 .hwrap,html[dir=rtl] .hero2 .hwrap{width:100%;margin:0;padding:40px 20px 52px}
+ .hwrap:before{margin-bottom:20px;font-size:11px}
+ .hero2 h1{font-size:clamp(44px,12.5vw,76px)}
+ .hero2 .sub{margin-top:22px}
+ .pband{min-height:0}
+ .pimg,html[dir=rtl] .pimg{position:relative;inset:auto;width:100%;height:min(56svh,460px);overflow:hidden;z-index:0}
+ .pimg img{transform:translate3d(0,var(--py,0px),0) scale(1.12)}
+ .pband .wrap,html[dir=rtl] .pband .wrap{position:relative;inset:auto;display:block;padding:44px 20px 56px}
+ .mban{display:block;min-height:0}
+ .mbg,html[dir=rtl] .mbg{position:relative;inset:auto;height:34svh;z-index:0}
+ .mban .wrap,html[dir=rtl] .mban .wrap{width:100%;margin:0;padding:34px 20px 36px}
+ .vhero{display:block}
+ .vhero .vbg,html[dir=rtl] .vhero .vbg{position:relative;inset:auto;height:min(58svh,480px);z-index:0}
+ .vhero .wrap,html[dir=rtl] .vhero .wrap{width:100%;margin:0;padding:36px 20px 48px;min-height:0}
+ .sigf{padding:80px 0}
+ .sf-fig{max-width:520px}
+ .sec h2{font-size:clamp(34px,8.6vw,48px)}
+ .mnav a{font-size:30px}
+}
+@media (max-width:420px){
+ .mi{grid-template-columns:auto minmax(34px,1fr) auto;column-gap:10px}
+ .hero2 h1{font-size:clamp(42px,12.8vw,52px)}
+ .bigline{font-size:clamp(30px,8.4vw,38px)}
+ .sf-copy h2{font-size:clamp(42px,12vw,54px)}
+ .mban h1,.vhero h1{font-size:clamp(54px,16vw,72px)}
+ .btn{padding:14px 24px}
+ .it i{font-size:19px}
+ .mcard{padding-top:38px}
+}
+
+/* Arabic: Markazi Text runs small, so sizes go up; no italics, no spaced caps */
+html[lang=ar] body{font-size:18px;line-height:1.85}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] .it i,html[lang=ar] .fav h3,html[lang=ar] .sf2 h3,html[lang=ar] .rsum,html[lang=ar] .lb figcaption i,html[lang=ar] .bigline,html[lang=ar] .stepper output,html[lang=ar] .mnav a{font-family:var(--ar-d),var(--ar-b),serif;font-weight:600}
+html[lang=ar] .hero2 h1{font-size:clamp(52px,6.4vw,104px);line-height:1.14;letter-spacing:0}
+html[lang=ar] .hero2 .ln{font-weight:600}
+html[lang=ar] .hwrap:before{font-size:15px;letter-spacing:.06em}
+html[lang=ar] .sf-copy h2{font-size:clamp(50px,5.8vw,92px);line-height:1.15;max-width:12ch}
+html[lang=ar] .sf2 h3{font-size:38px}
+html[lang=ar] .bigline{font-size:clamp(34px,4.2vw,68px);line-height:1.3;max-width:14em}
+html[lang=ar] .sec h2{font-size:clamp(42px,4.8vw,70px);line-height:1.2}
+html[lang=ar] .mban h1,html[lang=ar] .vhero h1{font-size:clamp(64px,9.4vw,140px);line-height:1.1}
+html[lang=ar] .msec h2{font-size:clamp(32px,3.6vw,46px);letter-spacing:0}
+html[lang=ar] .it i{font-size:24px;line-height:1.35}
+html[lang=ar] .kitchen .it i{font-size:28px}
+html[lang=ar] .fav h3{font-size:24px}
+html[lang=ar] .rsum{font-size:26px}
+html[lang=ar] .vgrid h3{font-size:36px}
+html[lang=ar] .nav a,html[lang=ar] .btn,html[lang=ar] .chip,html[lang=ar] .lang,html[lang=ar] .rlab,html[lang=ar] .fld label,html[lang=ar] .ways span,html[lang=ar] .ftr h4,html[lang=ar] .mapcard .go,html[lang=ar] .dchip b{font-family:var(--ar-b),sans-serif;font-weight:600;letter-spacing:0}
+html[lang=ar] .nav a{font-size:17px}
+html[lang=ar] .btn{font-size:16px}
+html[lang=ar] .chip{font-size:16px}
+html[lang=ar] .ways span{font-size:16px}
+html[lang=ar] .mnav a{font-size:36px;line-height:1.4}
+html[lang=ar] .mi .it small{max-width:34em}
+@media (max-width:980px){
+ html[lang=ar] .hero2 h1{font-size:clamp(48px,13.5vw,80px)}
+ html[lang=ar] .sec h2{font-size:clamp(40px,10vw,56px)}
+ html[lang=ar] .mnav a{font-size:32px}
+}
+@media (max-width:420px){
+ html[lang=ar] .hero2 h1{font-size:clamp(46px,14vw,58px)}
+ html[lang=ar] .bigline{font-size:clamp(32px,9vw,42px)}
+ html[lang=ar] .sf-copy h2{font-size:clamp(46px,13vw,60px)}
+ html[lang=ar] .mban h1,html[lang=ar] .vhero h1{font-size:clamp(58px,17vw,78px)}
+ html[lang=ar] .it i{font-size:22px}
+}
